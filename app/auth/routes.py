@@ -39,7 +39,7 @@ def do_login():
         if not user or user.check_password(form.password.data):
             flash('Invalid credentials. Please try again')
             return redirect(url_for('authentication.do_login'))
-        login_user(user, form.stay_loggedin)
+        login_user(user, form.stay_loggedin.data)
         return redirect(url_for('main.display_books'))
     return render_template('login.html', form=form)
 
