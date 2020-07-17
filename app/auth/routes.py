@@ -36,7 +36,7 @@ def do_login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(user_email=form.email.data).first()
-        if not user or user.check_password(form.password.data):
+        if not user or not user.check_password(form.password.data):
             flash('Invalid credentials. Please try again')
             return redirect(url_for('authentication.do_login'))
         login_user(user, form.stay_loggedin.data)
