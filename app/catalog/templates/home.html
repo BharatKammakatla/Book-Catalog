@@ -12,7 +12,9 @@
                         <p>Rating: {{book.avg_rating}}</p>
                         <p>Pages: {{book.num_pages}}</p>
                         <p><a href="{{ url_for('main.display_publisher',publisher_id=book.pub_id) }}">Publisher Id: {{ book.pub_id }}</a></p>
-                        <br>
+                        <span class="label label-primary"><a href="{{ url_for('main.edit_book', book_id=book.id) }}" style="color: floralwhite"> edit </a> </span>
+                        <span class="label label-info"><a href="{{url_for('main.delete_book', book_id=book.id)}}" style="color: floralwhite"> delete </a> </span>
+                        <br><br>
                     </div>
                 {% endfor %}
 
