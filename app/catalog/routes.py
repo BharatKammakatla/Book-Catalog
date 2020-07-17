@@ -6,7 +6,7 @@ from flask import render_template
 @main.route('/')
 def display_books():
     books = Book.query.all()
-    return render_template('home.html', books = books)
+    return render_template('home.html', books=books)
 
 @main.route('/display/publisher/<publisher_id>')
 def display_publisher(publisher_id):

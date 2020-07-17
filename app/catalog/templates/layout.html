@@ -26,9 +26,23 @@
                         <h3 class="title"> The Books Shop Around the Corner </h3>
                     </a>
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href=""> Home </a></li>
-                        <li><a href=""> Register </a></li>
-                        <li><a href=""> Sign In </a> </li>
+                        <li><a href="{{ url_for('main.display_books') }}"> Home </a></li>
+                        <li><a href=" {{ url_for('authentication.register_user') }} "> Register </a></li>
+                        <li>{% if current_user.is_authenticated %}
+                                <a href=" {{ url_for('authentication.do_logout') }} "> LogOut </a>
+                            {% else %}
+                                <a href=" {{ url_for('authentication.do_login') }} "> LogIn </a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            <a href="">
+                                {% if current_user.is_authenticated %}
+                                    Logged In as {{ current_user.user_name.title() }}
+                                {% else %}
+                                    Not Logged In
+                                {% endif %}
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
