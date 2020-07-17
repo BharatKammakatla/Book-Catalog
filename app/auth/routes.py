@@ -39,12 +39,8 @@ def do_login():
         if not user or user.check_password(form.password.data):
             flash('Invalid credentials. Please try again')
             return redirect(url_for('authentication.do_login'))
-
         login_user(user, form.stay_loggedin)
         return redirect(url_for('main.display_books'))
-
-
-
     return render_template('login.html', form=form)
 
 
@@ -53,3 +49,7 @@ def do_login():
 def do_logout():
     logout_user()
     return redirect(url_for('main.display_books'))
+
+@at.app_errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
