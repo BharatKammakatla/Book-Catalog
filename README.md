@@ -3,4 +3,4 @@
 
 ![](books-inc.gif)
 
-Click to view live site, **[https://books-central.herokuapp.com/](https://bharatkammakatla.com/)**
+Click to view live site: **[https://books-central.herokuapp.com/](https://bharatkammakatla.com/)**
